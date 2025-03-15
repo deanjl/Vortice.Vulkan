@@ -1,20 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>
+      <!-- Have to provide blank entry here so that it provides something other than the build override. -->
+    </LangVersion>
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
-        <LangVersion>
-            <!-- Have to provide blank entry here so that it provides something other than the build override. -->
-        </LangVersion>
-    </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <Compile Include="Program.fs" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FSharp.Core" />
-    </ItemGroup>
-
-
+  <ItemGroup>
+    <ProjectReference Include="..\..\Vortice.Vulkan\Vortice.Vulkan.csproj" />
+  </ItemGroup>
 </Project>

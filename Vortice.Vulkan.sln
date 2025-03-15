@@ -48,6 +48,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vortice.SPIRV.Reflect", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vortice.SPIRV.Reflect.Tests", "tests\Vortice.SPIRV.Reflect.Tests\Vortice.SPIRV.Reflect.Tests.csproj", "{2DFFD155-0431-4F4B-A06D-0C43E3297ADB}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp", "src\samples\FSharp\FSharp.fsproj", "{C00881C8-3769-41DD-998B-6EF70C78FAC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{2DFFD155-0431-4F4B-A06D-0C43E3297ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DFFD155-0431-4F4B-A06D-0C43E3297ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DFFD155-0431-4F4B-A06D-0C43E3297ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00881C8-3769-41DD-998B-6EF70C78FAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00881C8-3769-41DD-998B-6EF70C78FAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00881C8-3769-41DD-998B-6EF70C78FAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00881C8-3769-41DD-998B-6EF70C78FAC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{DFDAD3C7-EB3E-4D55-A150-49CAD7374DB6} = {253C0AE5-70CF-4519-A8B6-4395B5ABD4DA}
 		{898042D9-7E34-40AE-ACC6-A43B25907CFA} = {253C0AE5-70CF-4519-A8B6-4395B5ABD4DA}
 		{2DFFD155-0431-4F4B-A06D-0C43E3297ADB} = {253C0AE5-70CF-4519-A8B6-4395B5ABD4DA}
+		{C00881C8-3769-41DD-998B-6EF70C78FAC3} = {08F6AF96-809B-45C5-BE6C-5BAB7D9AFB60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF0375B3-E304-4A53-8E5F-FC9D23743647}

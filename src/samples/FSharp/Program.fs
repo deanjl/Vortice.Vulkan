@@ -105,7 +105,7 @@ type ManualAllocatedBuffer =
         vkBindBufferMemory (device, buffer, memory, 0UL) |> check
 
         // map memory if upload enabled
-        let mutable mapping = nullPtr
+        let mutable mapping = Unchecked.defaultof<nativeptr<voidptr>>
         if uploadEnabled then vkMapMemory (device, memory, 0UL, VK_WHOLE_SIZE, VkMemoryMapFlags.None, mapping) |> check
         
         // make ManualAllocatedBuffer

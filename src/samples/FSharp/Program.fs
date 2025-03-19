@@ -137,7 +137,10 @@ type ManualAllocatedBuffer =
 
 /// Create the instance.
 let createInstance () =
+    use layers = new VkStringArray ([|"VK_LAYER_KHRONOS_validation"|])
     let mutable info = VkInstanceCreateInfo ()
+    info.enabledLayerCount <- 1u
+    info.ppEnabledLayerNames <- layers
     vkCreateInstance (&info, nullPtr, &instance) |> check
 
 /// Get the physical device.

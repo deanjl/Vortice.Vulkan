@@ -58,7 +58,7 @@ let check (result : VkResult) =
 type ManualAllocatedBuffer =
     { Buffer : VkBuffer 
       Memory : VkDeviceMemory
-      Mapping : nativeptr<voidptr> }
+      Mapping : voidptr }
 
     static member private findMemoryType typeFilter properties =
         
@@ -105,8 +105,9 @@ type ManualAllocatedBuffer =
         vkBindBufferMemory (device, buffer, memory, 0UL) |> check
 
         // map memory if upload enabled
-        let mutable mapping = Unchecked.defaultof<nativeptr<voidptr>>
-        if uploadEnabled then vkMapMemory (device, memory, 0UL, VK_WHOLE_SIZE, VkMemoryMapFlags.None, mapping) |> check
+        let mappingPtr = NativePtr.stackalloc<voidptr> 1 // must be allocated manually because managed allocation doesn't work
+        if uploadEnabled then Vulkan.vkMapMemory (device, memory, 0UL, Vulkan.VK_WHOLE_SIZE, VkMemoryMapFlags.None, mappingPtr) |> check
+        let mapping = NativePtr.read mappingPtr
         
         // make ManualAllocatedBuffer
         let manualAllocatedBuffer = 
@@ -128,7 +129,7 @@ type ManualAllocatedBuffer =
     
     /// Destroy a ManualAllocatedBuffer.
     static member destroy buffer =
-        if buffer.Mapping <> nullPtr then Vulkan.vkUnmapMemory (device, buffer.Memory)
+        if buffer.Mapping <> Unchecked.defaultof<voidptr> then Vulkan.vkUnmapMemory (device, buffer.Memory)
         Vulkan.vkDestroyBuffer (device, buffer.Buffer, nullPtr)
         Vulkan.vkFreeMemory (device, buffer.Memory, nullPtr)
 
